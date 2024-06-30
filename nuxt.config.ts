@@ -20,14 +20,14 @@ export default defineNuxtConfig({
   },
   pwa: {
     manifest: {
-      theme_color: "#8936FF",
-      background_color: "#2EC6FE",
+      theme_color: "#000000",
+      background_color: "#000000",
       orientation: "landscape",
       display: "fullscreen",
       dir: "rtl",
       lang: "en-GB",
-      name: "bende van cuijk",
-      short_name: "Bende",
+      name: "Bende van Cuijk",
+      short_name: "Bende van Cuijk",
       start_url: "/",
       icons: [
         {
