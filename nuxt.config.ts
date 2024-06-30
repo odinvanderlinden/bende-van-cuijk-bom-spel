@@ -23,11 +23,11 @@ export default defineNuxtConfig({
       theme_color: "#8936FF",
       background_color: "#2EC6FE",
       orientation: "landscape",
-      display: "standalone",
+      display: "fullscreen",
       dir: "ltr",
       lang: "en-GB",
       name: "bende van cuijk",
-      short_name: "bende",
+      short_name: "Bende",
       start_url: "/",
       icons: [
         {
