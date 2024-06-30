@@ -1,9 +1,11 @@
 <template>
-  <main class="content flex-center">
+  <main class="content flex-center background-image">
     <div class="w-3/4">
       <Card>
         <CardHeader>
-          <CardTitle class="text-center">Tijd voordat bom ontploft!</CardTitle>
+          <CardTitle class="text-center"
+            >Tijd voordat de bom ontploft!</CardTitle
+          >
         </CardHeader>
         <CardContent>
           <div class="flex">
@@ -95,5 +97,9 @@ function setDiff(t1: Date, t2: Date) {
 .content {
   height: 93%;
   width: 100vw;
+}
+.background-image {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/02/61/74/31/1000_F_261743126_xPq1Cvn5XbCSuLxZRS4zGdKucbXss7Uf.jpg");
+  background-repeat: repeat-x;
 }
 </style>
