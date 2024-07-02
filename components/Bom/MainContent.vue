@@ -3,12 +3,12 @@
     <div class="w-3/4">
       <Card>
         <CardHeader>
-          <CardTitle class="text-center"
+          <CardTitle class="text-center" v-if="isBomOntmanteld === false"
             >Tijd voordat de bom ontploft!</CardTitle
           >
         </CardHeader>
         <CardContent>
-          <div class="flex">
+          <div class="flex" v-if="!isBomOntmanteld">
             <BomTimerSection
               class="w-1/5"
               :numberToShow="timeRemaining?.days"
@@ -35,13 +35,28 @@
               textToShow="Milliseconden"
             />
           </div>
+          <div
+            v-if="isBomOntmanteld"
+            class="text-green-500 text-3xl text-center"
+          >
+            Bom ontmanteld!
+          </div>
+          <div class="py-2" v-if="!isBomOntmanteld">
+            <Input v-model="ontmantelCode" placeholder="Ontmantelcode" />
+          </div>
+          <div class="flex justify-center pt-2" v-if="!isBomOntmanteld">
+            <Button :onclick="handleOntmantelClick">Ontmantel</Button>
+          </div>
         </CardContent>
       </Card>
     </div>
   </main>
 </template>
 <script setup lang="ts">
+const ontmantelCode = ref("");
 const explodeTime = new Date(2024, 6, 10, 22, 0, 0, 0);
+const isBomOntmanteld = ref(false);
+let intervalId: NodeJS.Timeout;
 const timeRemaining = ref<
   | {
       days: string;
@@ -52,13 +67,18 @@ const timeRemaining = ref<
     }
   | undefined
 >();
+
 onMounted(async () => {
-  setInterval(() => {
-    setDiff(explodeTime, new Date());
-  }, 10);
-  const nuxt = useNuxtApp();
-  await nuxt.$pwa?.install();
-  console.log(nuxt.$pwa?.isPWAInstalled);
+  const { isTicking } = await $fetch<{ isTicking: boolean }>(
+    "/api/bom/isTicking"
+  );
+  if (isTicking) {
+    intervalId = setInterval(() => {
+      setDiff(explodeTime, new Date());
+    }, 10);
+  } else {
+    isBomOntmanteld.value = true;
+  }
 });
 
 function setDiff(t1: Date, t2: Date) {
@@ -92,6 +112,14 @@ function setDiff(t1: Date, t2: Date) {
   };
   return `${days}:${hrs}:${min}:${sec}.${ms}`;
 }
+
+const handleOntmantelClick = async () => {
+  if (ontmantelCode.value === "0ntm4nt3l") {
+    await $fetch("/api/bom/defuse", { method: "POST" });
+    clearInterval(intervalId);
+    isBomOntmanteld.value = true;
+  }
+};
 </script>
 <style>
 .content {
@@ -99,7 +127,7 @@ function setDiff(t1: Date, t2: Date) {
   width: 100vw;
 }
 .background-image {
-  background-image: url("https://as2.ftcdn.net/v2/jpg/02/61/74/31/1000_F_261743126_xPq1Cvn5XbCSuLxZRS4zGdKucbXss7Uf.jpg");
+  background-image: url("../../assets/foto-zonder-watermerk.png");
   background-repeat: repeat-x;
 }
 </style>
