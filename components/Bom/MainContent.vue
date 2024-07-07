@@ -53,6 +53,8 @@
   </main>
 </template>
 <script setup lang="ts">
+const juisteOntmantelCode =
+  "321-BVCUIJK-5S-OAMBCPARB-PLVUMGD-534239:AFSTANDSBEDIENING";
 const ontmantelCode = ref("");
 const explodeTime = new Date(2024, 6, 10, 22, 0, 0, 0);
 const isBomOntmanteld = ref(false);
@@ -114,7 +116,7 @@ function setDiff(t1: Date, t2: Date) {
 }
 
 const handleOntmantelClick = async () => {
-  if (ontmantelCode.value === "0ntm4nt3l") {
+  if (ontmantelCode.value === juisteOntmantelCode) {
     await $fetch("/api/bom/defuse", { method: "POST" });
     clearInterval(intervalId);
     isBomOntmanteld.value = true;

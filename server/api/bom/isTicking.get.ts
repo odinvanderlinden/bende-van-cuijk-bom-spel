@@ -4,6 +4,6 @@ import { isTicking } from "~/server/state/bomb";
 
 export default defineEventHandler<{ isTicking: boolean }>((event) => {
   return {
-    isTicking: isTicking,
+    isTicking,
   };
 });

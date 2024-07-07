@@ -25,7 +25,7 @@
               :value="bericht.id"
             >
               <AccordionTrigger>{{ bericht.title }}</AccordionTrigger>
-              <AccordionContent> {{ bericht.message }}</AccordionContent>
+              <AccordionContent v-html="bericht.message"></AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
