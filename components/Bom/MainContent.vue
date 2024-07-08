@@ -56,7 +56,7 @@
 const juisteOntmantelCode =
   "321-BVCUIJK-5S-OAMBCPARB-PLVUMGD-534239:AFSTANDSBEDIENING";
 const ontmantelCode = ref("");
-const explodeTime = new Date(2024, 6, 10, 22, 0, 0, 0);
+const explodeTime = new Date(2024, 6, 12, 1, 0, 0, 0);
 const isBomOntmanteld = ref(false);
 let intervalId: NodeJS.Timeout;
 const timeRemaining = ref<
