@@ -36,7 +36,11 @@
 <script setup lang="ts">
 import type { GetMessagesResponse, Message } from "@/types/message";
 
-const { data } = await useFetch<GetMessagesResponse>("/api/bom/messages");
+const { data } = await useFetch<GetMessagesResponse>("/api/bom/messages", {
+  headers: {
+    "Cache-Control": "no-cache",
+  },
+});
 </script>
 <style>
 .header {

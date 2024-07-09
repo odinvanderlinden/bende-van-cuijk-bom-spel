@@ -1,6 +1,7 @@
 import { type Message } from "../../types/message";
 
 //Maand is index dus 1 minder
+// Op vercel server is het 2 uur vroeger
 
 export let messages: Message[] = [
   {
@@ -34,9 +35,10 @@ export let messages: Message[] = [
     message: `Hoi Welpen, <br/>
     <br/>
     De ontmantelcode is veels te moeilijk om te raden, zelfs de politie zal jullie niet kunnen helpen😈<br/>
+    En waag het niet nogmaals de politie te benaderen<br/>
     <br/>
     De bende van Cuijk`,
-    timestamp: new Date(2024, 6, 9, 18),
+    timestamp: new Date(2024, 6, 9, 16),
   },
 ];
 
