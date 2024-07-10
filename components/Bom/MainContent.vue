@@ -45,7 +45,7 @@
             <Input v-model="ontmantelCode" placeholder="Ontmantelcode" />
           </div>
           <div class="flex justify-center pt-2" v-if="!isBomOntmanteld">
-            <Button :onclick="handleOntmantelClick">Ontmantel</Button>
+            <Button :onclick="() => handleOntmantelClick()">Ontmantel</Button>
           </div>
         </CardContent>
       </Card>
@@ -116,6 +116,8 @@ function setDiff(t1: Date, t2: Date) {
 }
 
 const handleOntmantelClick = async () => {
+  console.log("test");
+  console.log(ontmantelCode.value === juisteOntmantelCode);
   if (ontmantelCode.value === juisteOntmantelCode) {
     await $fetch("/api/bom/defuse", { method: "POST" });
     clearInterval(intervalId);
