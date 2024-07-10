@@ -40,6 +40,18 @@ export let messages: Message[] = [
     De bende van Cuijk`,
     timestamp: new Date(2024, 6, 9, 16),
   },
+  {
+    id: 3,
+    title: "Geld terug",
+    message: `Hoi Welpen, <br/>
+    <br/>
+    Wij hebben vandaag in jullie gebouw gezocht naar iets waardevols zodat jullie ons kunnen terugbetalen<br/>
+    Helaas hebben jullie niks wat veel geld waard is, dus hebben we maar jullie bestek meegenomen. Dat ijzerwaar kunnen we nog verpatsen.<br/>
+    <br/>
+    Tot snel,<br/>
+    De bende van Cuijk`,
+    timestamp: new Date(2024, 6, 10, 12),
+  },
 ];
 
 export const setMessages = (newMessages: Message[]) => {
