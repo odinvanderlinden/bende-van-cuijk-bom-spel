@@ -52,6 +52,34 @@ export let messages: Message[] = [
     De bende van Cuijk`,
     timestamp: new Date(2024, 6, 10, 12),
   },
+  {
+    id: 4,
+    title: "De bom gaat weer aan",
+    message: `Hoi Welpen, <br/>
+    <br/>
+    Mooi werk die bom ontmanteling zeg, maar zo makkelijk komen jullie niet van ons af.<br/>
+    We hebben nogsteeds ons geld niet terug en dat zal hoe dan ook opgelost moeten worden.<br/>
+    Hierom zetten we bom toch maar weer aan, jullie regelen het maar.<br/>
+    <br/>
+    P.S. jullie hebben geluk dat ik jullie gister avond niet te pakken heb gekregen, dus dan maar zo.<br/>
+    <br/>
+    Tot snel,<br/>
+    De bende van Cuijk`,
+    timestamp: new Date(2024, 6, 11, 7),
+  },
+  {
+    id: 5,
+    title: "🐍",
+    message: `Hoi Welpen, <br/>
+    <br/>
+    Hebben jullie nou alweer contact met politie gezocht?!<br/>
+    Volgensmij waren wij vrij duidelijk geweest dat dit niet meer de bedoeling was. Hebben jullie dan niks geleerd?<br/>
+    Wij willen graag een hartig woordje met jullie spreken!<br/>
+    <br/>
+    Tot vanavond,<br/>
+    De bende van Cuijk`,
+    timestamp: new Date(2024, 6, 11, 13),
+  },
 ];
 
 export const setMessages = (newMessages: Message[]) => {
